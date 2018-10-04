@@ -6,7 +6,7 @@ title: First Post
 
 [네이버 링크 걸기](https://www.naver.com)
 
-'''C++
+'''c++
 int n = 2;
 printf("%d", n);
 '''
