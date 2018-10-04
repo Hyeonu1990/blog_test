@@ -10,3 +10,5 @@ title: First Post
 int n = 2;
 printf("%d", n);
 ```
+
+![imgTest]({{ site.baseurl }}/images/logo.png)
