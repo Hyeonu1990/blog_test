@@ -1,10 +1,15 @@
-//~작성중~---//~작성중~
+---
 layout: post
 title: 안드로이드에서 유니티, 다른 안드로이드 프로젝트(OpenCV적용) 불러오기
 ---
 
 본 포스트는 어느 정도 안드로이드 스튜디오의 기초적인 경험이 있다고 생각하고 진행해 나갑니다.
+
+유니티 부분도 큐브 하나 띄운 간단한 프로젝트라도 빌드했던 경험이 있다는 전제 하에 진행합니다. 유니티는 그냥 아무거나 만들어논 프로젝트로 이용하시면 됩니다만 기본적으로 유니티상에서 바로 안드로이드 빌드 후 정상작동하는 프로젝트여야 합니다.
+
 OpenCV가 적용된 안드로이드 프로젝트는 http://webnautes.tistory.com/1054 여기를 참고하며 만들었습니다.
+
+위 사이트 예제와 크게 다른점은 CMakeLists.txt에서 경로를 지정하는 부분이니 안드로이드 프로젝트 깃허브를 참조하바랍니다. https://github.com/Hyeonu1990/CustomCode/tree/master/CustomCode_Android
 
 1. 빈 프로젝트에 기존 안드로이드 프로젝트 Import
 
@@ -88,8 +93,42 @@ MainActivty.java에 아래와 같이 코드를 추가합니다. 불러올 Activi
 
 
 
-3. 작동이 확인되면 그 다음 유니티 new gradle 옵션으로 빌드 후 export
+4. 유니티에서 new gradle 옵션으로 빌드 후 export
 
-4. 막상 적용하고 실행하면 어플 자체에서는 오류가 안나지만 유니티를 실행하면 디바이스 오류
- 
-5. 유니티는 안드로이드에서 armeabi-v7a과 x86만 지원함으로 armeabi-v8이 아닌 armeabi-v7a로 지정해야함(opencv java sdk가 x86을 지원하는지 여부 확인)
+본 포스트에서는 Vuforia를 활용한 간단한 AR샘플을 제작하여 사용하지만 그냥 큐브 하나 띄어놓은 단순한 프로젝트여도 아래 내용을 따라하는데 지장없습니다.
+
+이미 완성된 프로젝트가 있다는 전제 하에 시작합니다. 유니티 메뉴에서 File - Build Settings를 누르면 나오는 창에서 아래와 같이 설정해 주시고 Export합니다.
+
+![img]({{ site.baseurl }}/images/android_unity/build_settings.png)
+
+아래는 Export된 내용입니다.
+
+![img]({{ site.baseurl }}/images/android_unity/unity_export_result.png)
+
+이제 해당 프로젝트를 추가하여봅시다. 다른 안드로이드 프로젝트를 불러온것과 같이 안드로이드에서 File - New - Import Module로 아까 Export했던 유니티 프로젝트를 불러옵니다. 아래는 그 결과입니다.
+
+![img]({{ site.baseurl }}/images/android_unity/android_unity_import.png)
+
+혹시 아래와 같은 오류가 떠도 일단 무시합니다.
+
+![img]({{ site.baseurl }}/images/android_unity/android_unity_import_error.png)
+
+Import된 유니티 모듈 내에 build.gradle에서 밑의 이미지의 아래쪽 코드에 맞게 변경합니다.
+
+![img]({{ site.baseurl }}/images/android_unity/android_unity_build_gradle_modify.png)
+
+그림에는 안나와있지만 build.gradle 위쪽에 buildscript에서 dependencies 부분에 gradle빌드버전 설정하는 부분이 있습니다.(아마 com.android.tools.build:gradle:2.1.0'로 설정되있을겁니다.) 전체 프로젝트가 같은 버전이여야 합니다. 아마 스튜디오 상에서 전구버튼으로 자동으로 바꿀 수도 있습니다.
+
+그리고 유니티 모듈 내에 AndroidManifest.xml에서 <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="28" /> 이부분을 제거합니다.
+
+일반적인 유니티 프로젝트라면 여기서 오류는 사라졌을 겁니다. 하지만 현재 샘플에 들어간 Vuforia라는 AR SDK때문에 추가 작업이 필요합니다. 해당사항이 아니신 분들은 메인 프로젝트와 유니티 프로젝트 연결하는 부분까지 쭉 내리시면 됩니다.
+
+Vuforia 7버전 부터 유니티 내부에 들어갔으며 
+
+
+
+
+
+
+5. 막상 적용하고 실행하면 어플 자체에서는 오류가 안나지만 유니티를 실행하면 디바이스 오류
+유니티는 안드로이드에서 armeabi-v7a과 x86만 지원함으로 armeabi-v8이 아닌 armeabi-v7a로 지정해야함(opencv java sdk가 x86을 지원하는지 여부 확인)
