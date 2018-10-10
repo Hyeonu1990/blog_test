@@ -194,8 +194,6 @@ MainActivity.java에서 onCreate 함수에 유니티 액티비티를 실행해�
 
 ![img]({{ site.baseurl }}/images/android_unity/unity_arm64-v8a_error_solution.png)
 
-구동영상
-
-준비중...
+구동 영상
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DU7CYtcquHc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
