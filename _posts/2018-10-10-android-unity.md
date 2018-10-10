@@ -198,4 +198,4 @@ MainActivity.java에서 onCreate 함수에 유니티 액티비티를 실행해�
 
 준비중
 
-{ % youtube https://www.youtube.com/watch?v=_q8NwdK-o00 % }
+{% youtube https://www.youtube.com/watch?v=_q8NwdK-o00 %}
