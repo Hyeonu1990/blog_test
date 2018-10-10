@@ -73,7 +73,7 @@ CustomCode의 AndroidManifest.xml에서 아래와 같이 해당 부분을 수정
 
 
 
-3. 메인인 Activity에서 CustomCodeActivity 실행하기
+3. 메인 Activity에서 CustomCodeActivity 실행하기
 
 간편하게 메인에서 버튼을 클릭하여 CustomCodeActivity를 실행하도록 하겠습니다.
 
@@ -157,8 +157,45 @@ dependencies {
 
 일반 유니티 프로젝트와 뷰포리아 프로젝트 공통으로 compile에 대해서 경고메세지가 뜰텐데 complie을 implementation로 변경하면 해결됩니다. 차후 compile 명령어를 지원하지 않기 때문에 뜨는 경고메세지입니다.
 
+마지막으로 유니티프로젝트의 AndroidManifest.xml과 VuforiaWrapper 내부의 AndroidManifest.xml와 비교하여
+
+"<user-permission ~ " 이라고 시작하는 부분 중에 겹치지 않는, VuforiaWrapper 내부의 AndroidManifest.xml에서만 존재하는 권한 설정 부분을
+
+유니티프로젝트의 AndroidManifest.xml에 추가해줍니다.
 
 
 
-5. 막상 적용하고 실행하면 어플 자체에서는 오류가 안나지만 유니티를 실행하면 디바이스 오류
-유니티는 안드로이드에서 armeabi-v7a과 x86만 지원함으로 armeabi-v8이 아닌 armeabi-v7a로 지정해야함(opencv java sdk가 x86을 지원하는지 여부 확인)
+5. 메인프로젝트로 유니티 액티비티 띄우기
+
+메인프로젝트 UI에서 유니티 액티비티를 실행할 버튼을 만들어줍니다.
+
+![img]({{ site.baseurl }}/images/android_unity/mainactivty_makeunitybutton.png)
+
+메인프로젝트(app)의 build.gradel에서 implementation project(':유니티프로젝트이름') 을 추가합니다
+
+![img]({{ site.baseurl }}/images/android_unity/mainactivty_add_unity_project.png)
+
+MainActivity.java에서 onCreate 함수에 유니티 액티비티를 실행해줄 부분을 추가합니다.
+
+![img]({{ site.baseurl }}/images/android_unity/mainactivty_load_unity_activity.png)
+
+
+
+6. 빌드 후 발생 할 수 있는 문제점 및 작동 영상
+
+![img]({{ site.baseurl }}/images/android_unity/unity_arm64-v8a_error.png)
+
+혹시나 유니티버튼을 누르고 이런 메세지가 뜬다면 아마도 NDK빌드설정 문제입니다.
+저도 갤럭시탭S2에서는 저런 메세지가 떴는데 보급형 스마트폰에서는 정상적으로 실행이 되서 원인을 찾게 되었습니다.
+
+최신기기들은 기본값 arm64-v8a 형식으로 빌드되기 때문에 유니티가 지원하는 armeabi-v7a 형식에 맞지 않아 저런 경고 메세지가 뜹니다. 즉, 이 문제를 해결하기 위해서는 armeabi-v7a 형식으로 빌드되도록 지정해야합니다.
+
+메인 프로젝트의 build.gradle에 아래 이미지와 같이 빨간색 부분을 추가하면 해결됩니다. 이 방법으로 특정 환경에서만 작동하도록 빌드되기 때문에 여러 형식이 섞여있는 OpenCV 프로젝트도 이 방법으로 빌드되는 APK용량을 축소 할 수 있습니다.
+
+![img]({{ site.baseurl }}/images/android_unity/unity_arm64-v8a_error_solution.png)
+
+구동영상
+
+준비중
+
+{ % youtube https://www.youtube.com/watch?v=_q8NwdK-o00 % }
