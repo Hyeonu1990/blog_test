@@ -155,7 +155,7 @@ dependencies {
 }
 ```
 
-
+일반 유니티 프로젝트와 뷰포리아 프로젝트 공통으로 compile에 대해서 경고메세지가 뜰텐데 complie을 implementation로 변경하면 해결됩니다. 차후 compile 명령어를 지원하지 않기 때문에 뜨는 경고메세지입니다.
 
 
 
