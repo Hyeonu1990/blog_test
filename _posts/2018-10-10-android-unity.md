@@ -196,6 +196,6 @@ MainActivity.java에서 onCreate 함수에 유니티 액티비티를 실행해�
 
 구동영상
 
-준비중
+준비중...
 
 {% youtube https://youtu.be/_q8NwdK-o00 %}
