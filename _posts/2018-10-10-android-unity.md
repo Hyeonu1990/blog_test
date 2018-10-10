@@ -113,17 +113,47 @@ MainActivty.java에 아래와 같이 코드를 추가합니다. 불러올 Activi
 
 ![img]({{ site.baseurl }}/images/android_unity/android_unity_import_error.png)
 
-Import된 유니티 모듈 내에 build.gradle에서 밑의 이미지의 아래쪽 코드에 맞게 변경합니다.
+Import된 유니티 모듈 내에 build.gradle에서 밑의 이미지의 오른쪽 코드에 맞게 변경합니다.
 
 ![img]({{ site.baseurl }}/images/android_unity/android_unity_build_gradle_modify.png)
 
 그림에는 안나와있지만 build.gradle 위쪽에 buildscript에서 dependencies 부분에 gradle빌드버전 설정하는 부분이 있습니다.(아마 com.android.tools.build:gradle:2.1.0'로 설정되있을겁니다.) 전체 프로젝트가 같은 버전이여야 합니다. 아마 스튜디오 상에서 전구버튼으로 자동으로 바꿀 수도 있습니다.
 
-그리고 유니티 모듈 내에 AndroidManifest.xml에서 <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="28" /> 이부분을 제거합니다.
+그리고 유니티 모듈 내에 AndroidManifest.xml에서 밑의 이미지의 아래쪽 코드에 맞게 변경합니다
+
+![img]({{ site.baseurl }}/images/android_unity/android_unity_manifest_modify.png)
 
 일반적인 유니티 프로젝트라면 여기서 오류는 사라졌을 겁니다. 하지만 현재 샘플에 들어간 Vuforia라는 AR SDK때문에 추가 작업이 필요합니다. 해당사항이 아니신 분들은 메인 프로젝트와 유니티 프로젝트 연결하는 부분까지 쭉 내리시면 됩니다.
 
-Vuforia 7버전 부터 유니티 내부에 들어갔으며 
+Vuforia 7버전 부터 유니티 내부에 들어갔으며 안드로이드 프로젝트로 Export 시 Vuforia 부분이 VuforiaWrapper.aar 파일로 들어가게 되었습니다. 혹시 저처럼 VuforiaWrapper에 관해서 계속 빌드 오류가 발생한다면 이 방법을 따라해보시기 바랍니다.
+
+VuforiaWrapper.aar를 압축프로그램으로 실행 후 
+
+VuforiaWrapper 내부에 있던 jni -> armeabi-v7a에 들어있는 3개의 파일을
+
+유니티프로젝트 폴더 -> src -> main -> jniLibs -> armeabi-v7a 폴더에 집어넣습니다.
+
+VuforiaWrapper 내부 libs 폴더에 들어있는 2개의 파일을
+
+유니티프로젝트 폴더 -> libs 폴더에 집어넣습니다.
+
+그리고 유니티프로젝트 폴더에 build.gradle에서
+
+```text
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	compile(name: 'VuforiaWrapper', ext:'aar')
+}
+```
+
+이 부분에서 VuforiaWrapper관련 부분을 주석처리하거나 제거합니다.
+
+```text
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	//compile(name: 'VuforiaWrapper', ext:'aar')
+}
+```
 
 
 
