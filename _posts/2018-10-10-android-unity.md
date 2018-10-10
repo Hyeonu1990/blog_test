@@ -46,7 +46,47 @@ Preview를 눌렀다면 아래와 같은 메세지가 뜨며 Import된 모듈 �
 
 
 
-2. MainActivity와 연결하기 전 
+2. MainActivity와 연결하기 전 작업들
+
+아래부터 Import 했던 프로젝트의 이름을 원활한 설명을 위해 CustomCode라고 명칭하겠습니다.
+
+위에서 Activity의 이름을 바꾼 방법과 같이 src - main - res - layout - activity_main.xml을 activity_ccode.xml로 변경하겠습니다.
+
+(MainActivity.java에 있는 activity_main이란 명칭도 바뀔 수 있으니 변경 후 확인바랍니다. onCreate의 setContentView(R.layout.activity_main) 부분)
+
+![img]({{ site.baseurl }}/images/android_unity/ccode_layout_namechange_after.png)
+
+CustomCode의 AndroidManifest.xml에서 아래와 같이 해당 부분을 수정합니다. 이제 이 프로젝트는 메인이 아니기 때문에 수정해줍니다.
+
+![img]({{ site.baseurl }}/images/android_unity/ccode_manifest_modify.png)
+
+이제 CustomCode에서 build.gradle을 수정하도록 하겠습니다. 이 프로젝트를 어플리케이션이 아닌 라이브러리로 인식시키려 합니다.
+
+아래와 같이 com.android.application을 com.android.library로 변경해주시고 applicationId부분을 지우거나 주석처리합니다.
+
+![img]({{ site.baseurl }}/images/android_unity/ccode_build_gradle_modify.png)
+
+
+
+3. 메인인 Activity에서 CustomCodeActivity 실행하기
+
+간편하게 메인에서 버튼을 클릭하여 CustomCodeActivity를 실행하도록 하겠습니다.
+
+우선 메인 프로젝트(app 모듈)의 build.gradle에서 밑에 dependencies부분에 implementation project(':CustomCode')내용을 추가합니다.
+
+![img]({{ site.baseurl }}/images/android_unity/mainactivty_add_customcode_project.png)
+
+메인 프로젝트에서 아래와 같이 버튼을 생성해줍니다.
+
+![img]({{ site.baseurl }}/images/android_unity/mainactivty_makeccbutton.png)
+
+MainActivty.java에 아래와 같이 코드를 추가합니다. 불러올 Activity의 import경로는 추가 프로젝트가 제대로 연결 되었다면 코드상에서 추가한 Activity의 이름을 쓰고 Alt+Enter로 쉽게 추가할 수 있습니다.
+
+![img]({{ site.baseurl }}/images/android_unity/mainactivty_load_customcode_activity.png)
+
+이후 기기에서 어플을 실행하고 버튼을 누르면 작동하게 됩니다. 작동영상은 이 포스트 마지막에 있습니다.
+
+
 
 3. 작동이 확인되면 그 다음 유니티 new gradle 옵션으로 빌드 후 export
 
