@@ -198,6 +198,7 @@ MainActivity.java에서 onCreate 함수에 유니티 액티비티를 실행해�
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DU7CYtcquHc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+
 ###전체 소스
 
 [https://github.com/Hyeonu1990/Anroid_Unity_Connection](https://github.com/Hyeonu1990/Anroid_Unity_Connection)
