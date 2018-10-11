@@ -11,7 +11,7 @@ OpenCV가 적용된 안드로이드 프로젝트는 [http://webnautes.tistory.co
 
 위 사이트 예제와 크게 다른점은 CMakeLists.txt에서 경로를 지정하는 부분이니 안드로이드 프로젝트 깃허브를 참조하바랍니다. [https://github.com/Hyeonu1990/CustomCode/tree/master/CustomCode_Android](https://github.com/Hyeonu1990/CustomCode/tree/master/CustomCode_Android)
 
-##1) 빈 프로젝트에 기존 안드로이드 프로젝트 Import
+## 1) 빈 프로젝트에 기존 안드로이드 프로젝트 Import
 
 빈 프로젝트 생성과정은 생략하겠습니다. 빈 프로젝트를 만든 후 기존에 만들었던 프로젝트를 Import 시키려 합니다.
 
@@ -51,7 +51,7 @@ Preview를 눌렀다면 아래와 같은 메세지가 뜨며 Import된 모듈 �
 
 
 
-##2) MainActivity와 연결하기 전 작업들
+## 2) MainActivity와 연결하기 전 작업들
 
 아래부터 Import 했던 프로젝트의 이름을 원활한 설명을 위해 CustomCode라고 명칭하겠습니다.
 
@@ -73,7 +73,7 @@ CustomCode의 AndroidManifest.xml에서 아래와 같이 해당 부분을 수정
 
 
 
-##3) 메인 Activity에서 CustomCodeActivity 실행하기
+## 3) 메인 Activity에서 CustomCodeActivity 실행하기
 
 간편하게 메인에서 버튼을 클릭하여 CustomCodeActivity를 실행하도록 하겠습니다.
 
@@ -93,7 +93,7 @@ MainActivty.java에 아래와 같이 코드를 추가합니다. 불러올 Activi
 
 
 
-##4) 유니티에서 new gradle 옵션으로 빌드 후 export
+## 4) 유니티에서 new gradle 옵션으로 빌드 후 export
 
 본 포스트에서는 Vuforia를 활용한 간단한 AR샘플을 제작하여 사용하지만 그냥 큐브 하나 띄어놓은 단순한 프로젝트여도 아래 내용을 따라하는데 지장없습니다.
 
@@ -165,7 +165,7 @@ dependencies {
 
 
 
-##5) 메인프로젝트로 유니티 액티비티 띄우기
+## 5) 메인프로젝트로 유니티 액티비티 띄우기
 
 메인프로젝트 UI에서 유니티 액티비티를 실행할 버튼을 만들어줍니다.
 
@@ -181,7 +181,7 @@ MainActivity.java에서 onCreate 함수에 유니티 액티비티를 실행해�
 
 
 
-##6) 빌드 후 발생 할 수 있는 문제점 및 작동 영상
+## 6) 빌드 후 발생 할 수 있는 문제점 및 작동 영상
 
 ![img]({{ site.baseurl }}/images/android_unity/unity_arm64-v8a_error.png)
 
@@ -194,11 +194,11 @@ MainActivity.java에서 onCreate 함수에 유니티 액티비티를 실행해�
 
 ![img]({{ site.baseurl }}/images/android_unity/unity_arm64-v8a_error_solution.png)
 
-###구동 영상
+### 구동 영상
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DU7CYtcquHc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
-###전체 소스
+### 전체 소스
 
 [https://github.com/Hyeonu1990/Anroid_Unity_Connection](https://github.com/Hyeonu1990/Anroid_Unity_Connection)
