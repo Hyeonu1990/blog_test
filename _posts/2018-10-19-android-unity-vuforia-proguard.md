@@ -13,7 +13,7 @@ Unity(Vuforia) in Android proguard setting
 -keep class unity.samyoung.* {*;}
 
 # 아래는 Vuforia를 위한 ProGuard 규칙
-#-keep class com.android.library.** { *; } #만약 유니티 프로젝트를 라이브러리로써 임포트 시켰을 경우 주석 
+#-keep class com.android.library.** { *; } #만약 유니티 프로젝트를 라이브러리로써 임포트 시켰을 경우 주석 해제
 -keep class com.vuforia.** { *; }
 -keep interface com.vuforia.** { *; }
 -keep class com.osterhoutgroup.** { *; }
