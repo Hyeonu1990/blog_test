@@ -5,6 +5,8 @@ title: 안드로이드에서 뷰포리아 적용된 유니티 프로젝트 프�
 
 Unity(Vuforia) in Android proguard setting
 
+!!현재 최신기기들에서는 적용 시 오류가 발생중!!
+
 ```text
 # 아래는 유니티 Default로 있는 ProGuard규칙
 -keep class bitter.jnibridge.* { *; }
