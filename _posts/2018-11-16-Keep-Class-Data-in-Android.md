@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 안드로이드에서 NDK로 C++ Class 데이터 유지
+title: 안드로이드에서 NDK로 C++ Class 데이터 유지 및 String값 
 ---
 
 안드로이드에서 long 형식의 포인터주소값을 보존할 변수를 만들어 보관하면 C++ 함수가 종료되도 클래스의 데이터는 살아있음
