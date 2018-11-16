@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 안드로이드에서 NDK로 C++ Class 데이터 유지 및 String값 
+title: 안드로이드에서 NDK로 C++ Class 데이터 유지 및 Class 내 String값 
 ---
 
 안드로이드에서 C++ 클래스의 포인터주소값을 Java 내에 long 형식으로 할당해두면 가비지 컬렉터에 의해 클래스 데이터가 사라지는걸 방지 할 수 
