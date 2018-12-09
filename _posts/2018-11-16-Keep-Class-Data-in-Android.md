@@ -71,7 +71,7 @@ Java_'프로젝트 패키지 이름'_'액티비티 클래스 이름'_GetClassPtr
 }
 
 extern "C"
-JNIEXPORT jlong JNICALL
+JNIEXPORT jstring JNICALL
 Java_'프로젝트 패키지 이름'_'액티비티 클래스 이름'_GetStr_C(JNIEnv *env, jobject instance, jlong ptr) {
 
     CustomClass* custom = (CustomClass*)ptr;
