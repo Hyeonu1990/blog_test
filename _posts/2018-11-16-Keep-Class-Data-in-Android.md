@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity
   ~
   long classptr;
   public native long GetClassPtr();
-  public String long GetStr_C(long ptr);
+  public native String GetStr_C(long ptr);
   String str;
   ~
   @Override
