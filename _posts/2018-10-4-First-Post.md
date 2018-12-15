@@ -4,7 +4,7 @@ title: First Post
 ---
 첫 포스트이자 테스트용 포스트
 
-[네이버 링크 걸기](https://www.naver.com)
+[ 링크 걸기](https://drive.google.com/file/d/1jmw0TOfpcfa2bPcoINrP-cVd9BKk7j17/view?usp=sharing)
 
 ```c++
 int n = 2;
